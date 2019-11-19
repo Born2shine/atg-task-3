@@ -10,7 +10,7 @@ class ATGController extends Controller
     public function addData(){
         $this->validate(request(), [
             'name' => 'required',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|email:rfc,dns|unique:users',
             'pincode' => 'required|unique:users|size:6'
         ]);
 

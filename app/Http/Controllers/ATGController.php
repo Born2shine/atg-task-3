@@ -19,7 +19,7 @@ class ATGController extends Controller
         // }
         $this->validate(request(), [
             'name' => 'required',
-            'email' => 'required|email:dns|unique:users',
+            'email' => 'required|email|unique:users',
             'pincode' => 'required|unique:users|size:6'
         ]);
 

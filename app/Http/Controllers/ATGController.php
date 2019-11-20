@@ -8,9 +8,18 @@ use App\User;
 class ATGController extends Controller
 {
     public function addData(){
+        // $email = request('email');
+
+        // if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        //     dd($email);
+        // }else{
+        //     return back()->withErrors([
+        //         'message' => 'Email address is not valid'
+        //     ]);
+        // }
         $this->validate(request(), [
             'name' => 'required',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|email:dns|unique:users',
             'pincode' => 'required|unique:users|size:6'
         ]);
 

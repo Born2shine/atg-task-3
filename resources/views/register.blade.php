@@ -54,7 +54,7 @@
                             </div>
                             <div class="form-group">
                                     <label class="float-left" for="Admin Name">Email</label>
-                                    <input type="email" name="email" class="form-control">
+                                    <input type="text" name="email" class="form-control">
                             </div>
                             <div class="form-group">
                                     <label class="float-left" for="Admin Name">Pincode</label>

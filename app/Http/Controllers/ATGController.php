@@ -4,30 +4,27 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Validator;
 
 class ATGController extends Controller
 {
+
     public function addData(){
-        // $email = request('email');
+        
+        // $this->validate(request(), [
+        //     'name' => 'required',
+        //     'email' => 'required|email|unique:users',
+        //     'pincode' => 'required|unique:users|size:6'
+        // ]);
 
-        // if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        //     dd($email);
-        // }else{
-        //     return back()->withErrors([
-        //         'message' => 'Email address is not valid'
-        //     ]);
-        // }
-        $this->validate(request(), [
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'pincode' => 'required|unique:users|size:6'
-        ]);
+        $data = Validator::make(request()->all(),[
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', 'max:255', 'unique:users'],
+            'pincode' => ['required', 'string', 'size:6']
+        ])->validate();
 
-        $data = User::create([
-            'name' => request('name'),
-            'email' => request('email'),
-            'pincode' => request('pincode')
-        ]);
+
+        $data = User::create($data);
 
         $data->save();
 

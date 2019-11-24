@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Log;
 
 use Mail;
 use App\User;
-use App\mail\SendMail;
+use App\Mail\SendMail;
 
 trait RegisterScopes
 {

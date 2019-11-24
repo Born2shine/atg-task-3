@@ -5,10 +5,14 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Traits\RegisterScopes;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, RegisterScopes;
+
+    protected $table = "users";
+
 
     /**
      * The attributes that are mass assignable.

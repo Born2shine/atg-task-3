@@ -4,32 +4,30 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Traits\RegisterScopes;
 use Illuminate\Support\Facades\Validator;
+
+
 
 class ATGController extends Controller
 {
 
-    public function addData(){
-        
-        // $this->validate(request(), [
-        //     'name' => 'required',
-        //     'email' => 'required|email|unique:users',
-        //     'pincode' => 'required|unique:users|size:6'
-        // ]);
+    use RegisterScopes;
 
-        $data = Validator::make(request()->all(),[
+    public function validator(array $data)
+    {
+        return Validator::make($data,[
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', 'unique:users'],
-            'pincode' => ['required', 'string', 'size:6']
-        ])->validate();
+            'pincode' => ['required', 'string', 'size:6', 'unique:users']
+        ]);
+    }
 
+    public function delete($id){
 
-        $data = User::create($data);
+        $del = User::find($id)->delete();
 
-        $data->save();
+        
 
-        session()->flash('message', 'Data submitted successfully');
-
-        return redirect('/');
     }
 }

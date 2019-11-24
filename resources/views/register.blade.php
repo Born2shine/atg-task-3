@@ -46,7 +46,7 @@
                             @endif
                     <form method="POST" action="/register" accept-charset="utf-8">
                         @csrf
-                        {{-- @method('POST') --}}
+                        {{-- @method('PATCH') --}}
 
                             <div class="form-group">
                                     <label class="float-left" for="Admin Name">Full Name</label>
@@ -60,9 +60,18 @@
                                     <label class="float-left" for="Admin Name">Pincode</label>
                                     <input type="password" name="pincode" class="form-control">
                             </div>
-                            <div>
-                                <button class="btn btn-success">Submit</button>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button class="btn btn-success">Submit</button>
+                                </div>
+                                {{-- <div class="col-md-6">
+                                    <div class="float-right">
+                                        <button class="btn btn-danger">Delete</button>
+                                        <a class="text-whit" href="/user/2/delete">Delete</a>
+                                    </div>
+                                </div> --}}
                             </div>
+                            
                     </form>
                 </div>
             </div>

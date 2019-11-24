@@ -15,4 +15,7 @@ Route::get('/', function () {
     return view('register');
 });
 
-Route::post('/register', 'ATGController@addData');
+Route::post('/register', 'ATGController@register');
+Route::patch('/user/delete/{id}', 'ATGController@deleteUser');
+
+// Route::get('/send', 'SendEmailController@send');

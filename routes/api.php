@@ -16,3 +16,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Route::get('/users', 'WebServicesController@users');
+// Route::get('/user/{id}', 'WebServicesController@fetch');
+Route::post('/register', 'WebServicesController@register');
+// Route::delete('/user/delete/{id}', 'WebServicesController@deleteUser');

@@ -14,6 +14,11 @@ class ATGController extends Controller
 
     use RegisterScopes;
 
+    public function index()
+    {
+        return view('register');
+    }
+
     public function validator(array $data)
     {
         return Validator::make($data,[
@@ -23,11 +28,4 @@ class ATGController extends Controller
         ]);
     }
 
-    public function delete($id){
-
-        $del = User::find($id)->delete();
-
-        
-
-    }
 }

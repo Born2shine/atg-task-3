@@ -11,11 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('register');
-});
+Route::get('/', 'ATGController@index');
 
 Route::post('/register', 'ATGController@register');
-Route::patch('/user/delete/{id}', 'ATGController@deleteUser');
+// Route::patch('/user/delete/{id}', 'ATGController@deleteUser');
 
 // Route::get('/send', 'SendEmailController@send');
